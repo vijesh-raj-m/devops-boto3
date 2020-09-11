@@ -53,12 +53,11 @@ def update_service(serviceName,arn):
         ScalableDimension='ecs:service:DesiredCount',
         ServiceNamespace='ecs',
         )
-        print('Started running tasks for service \t' +serviceNamemodified)
+        print('Stopped running tasks for service \t' +serviceNamemodified)
     else:
         update_response = client.update_service(
         cluster=arn,
         service=serviceName,
-        desiredCount=0
+        desiredCount=1
         )
-        print('Started running tasks for service \t' +serviceNamemodified)
-
+        print('Stopped running tasks for service \t' +serviceNamemodified)
