@@ -3,7 +3,7 @@ import boto3
 import os
 client = boto3.client('ecs')
 ecs = boto3.client('application-autoscaling')
-ApplicationAcronym = os.environ['ApplicationAcronym']
+ApplicationName = os.environ['ApplicationName']
 def lambda_handler(event, context):
    describeCluster = client.list_clusters()
    clusterarn = describeCluster['clusterArns']
@@ -14,9 +14,9 @@ def lambda_handler(event, context):
         for tags in clusterTagsList['tags']:
             if tags["key"] == 'Auto-shutdown':
                 shutdownTagValue = tags["value"]
-            elif tags["key"] == 'ApplicationAcronym':
+            elif tags["key"] == 'ApplicationName':
                 applicationTagValue = tags["value"]
-        if shutdownTagValue == 'True' and applicationTagValue == ApplicationAcronym:
+        if shutdownTagValue == 'True' and applicationTagValue == ApplicationName:
             print ('cluster going  to modify is \t' , arn)
             serviceresponse = client.list_services(cluster=arn)
             nextToken=serviceresponse.get('nextToken',None)
