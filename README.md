@@ -7,4 +7,4 @@ Schedule lambda function to shut down your microservices during off-peak hours f
 2) Cloudwatch event rule to schedule lambda function (https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html)
 3) ECS cluster having necessary tags available to filter clusters we need to stop to save costs (here we have used "Auto-shutdown=True" and ApplicationName tags to filter clusters)
 4) Lambda function having necessary environmental variables attached to it (here we have used ApplicationName) to filter out required ECS clusters to shutdown
-https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html
+(https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html)
