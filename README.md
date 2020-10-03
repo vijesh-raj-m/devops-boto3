@@ -1,5 +1,5 @@
 # ECS-STOP-START with boto3
-Schedule lambda function to shut down your microservices during off-peak hours for your development environments for saving development cost
+Schedule lambda function to shut down your microservices during off-peak hours for your development environments to save development cost
 
 # Environmental setup
 
