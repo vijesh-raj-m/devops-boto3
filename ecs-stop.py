@@ -12,7 +12,7 @@ def lambda_handler(event, context):
         shutdownTagValue=''
         applicationTagValue=''
         for tags in clusterTagsList['tags']:
-            if tags["key"] == 'Auto-shutdown':
+            if tags["key"] == 'shutdown':
                 shutdownTagValue = tags["value"]
             elif tags["key"] == 'ApplicationName':
                 applicationTagValue = tags["value"]
